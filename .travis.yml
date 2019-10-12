@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t JayeshKHazari/dockerspringbootx`x -f Dockerfile.dev .
+  - docker build -t JayeshKHazari/dockerspringboot -f Dockerfile.dev .
 
 
 deploy:
