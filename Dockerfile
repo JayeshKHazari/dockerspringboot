@@ -1,4 +1,10 @@
 FROM openjdk:8
-EXPOSE 8080
-ADD target/spring-boot-docker.jar spring-boot-docker.jar 
-ENTRYPOINT ["java","-jar","/spring-boot-docker.jar"]
+
+RUN apt-get update && apt-get install -y maven
+COPY . /project
+RUN  cd /project && mvn package
+
+#run the spring boot application
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom", "-Dblabla", "-jar","/project/target/spring-boot-docker.jar"]
+
+
